@@ -1,0 +1,27 @@
+@import "../../mediaQueries.scss";
+
+.menu {
+  display: none;
+  @include responsive(tab) {
+    height: 3.6rem;
+    display: flex !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0%;
+    background-color: #2874f0;
+    justify-content: space-evenly;
+  
+  &-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    &-icon{
+        color: whitesmoke;
+        font-size: 20px;
+    }
+  }
+
+}
+}

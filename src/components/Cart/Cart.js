@@ -8,6 +8,7 @@ import {
   loadCart,
   removeFromCart,
 } from "../redux/actions/productAction";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 const Cart = () => {
   const products = useSelector((state) => state.products);
@@ -98,47 +99,52 @@ const Cart = () => {
     );
   });
   return (
-    <div className="cart">
-      <NavBar />
-      <div className="cart-container">
-        {products?.cart.length ? (
-          <div className="cart-container-box">
-            <div className="cart-container-box-items">
-              <div className="cart-container-box-items-top">
-                <span className="cart-container-box-items-top-text">
-                  My Cart &#40;{products?.cart.length}&#41;
-                </span>
+    <>
+      <div className="cart">
+        <NavBar />
+        <div className="cart-container">
+          {products?.cart.length ? (
+            <div className="cart-container-box">
+              <div className="cart-container-box-items">
+                <div className="cart-container-box-items-top">
+                  <span className="cart-container-box-items-top-text">
+                    My Cart &#40;{products?.cart.length}&#41;
+                  </span>
+                </div>
+                <div className="cart-container-box-items-products">
+                  {product}
+                </div>
               </div>
-              <div className="cart-container-box-items-products">{product}</div>
-            </div>
-            <div className="cart-container-box-amount">
-              <div className="cart-container-box-amount-top">
-                <span className="cart-container-box-amount-top-text">
-                  PRICE DETAILS
-                </span>
-              </div>
-              <div className="cart-container-box-amount-box">
-                <div className="cart-container-box-amount-box-cal">
-                  <span className="cart-container-box-amount-box-cal-price">
-                    Price ({products.cart.length} item)
+              <div className="cart-container-box-amount">
+                <div className="cart-container-box-amount-top">
+                  <span className="cart-container-box-amount-top-text">
+                    PRICE DETAILS
+                  </span>
+                </div>
+                <div className="cart-container-box-amount-box">
+                  <div className="cart-container-box-amount-box-cal">
+                    <span className="cart-container-box-amount-box-cal-price">
+                      Price ({products.cart.length} item)
+                    </span>
+                  </div>
+                </div>
+                <div className="cart-container-box-amount-total">
+                  <span className="cart-container-box-amount-total-text">
+                    Total Amount
+                  </span>
+                  <span className="cart-container-box-amount-total-rate">
+                    &#8377;{totalPrice}
                   </span>
                 </div>
               </div>
-              <div className="cart-container-box-amount-total">
-                <span className="cart-container-box-amount-total-text">
-                  Total Amount
-                </span>
-                <span className="cart-container-box-amount-total-rate">
-                  &#8377;{totalPrice}
-                </span>
-              </div>
             </div>
-          </div>
-        ) : (
-          empty
-        )}
+          ) : (
+            empty
+          )}
+        </div>
       </div>
-    </div>
+      <MobileMenu />
+    </>
   );
 };
 export default Cart;

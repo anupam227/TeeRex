@@ -1,3 +1,5 @@
+@import "../../mediaQueries.scss";
+
 .navbar {
   width: 100%;
   display: flex;
@@ -10,12 +12,53 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @include responsive(tab) {
+      padding: 10px 20px;
+      justify-content: center;
+      flex-direction: column;
+    }
+    &-mobile {
+      display: none;
+      @include responsive(tab) {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        background-color: white;
+        &-searchbar {
+            display: flex;
+            gap: 1.1rem;
+            align-items: center;
+            &-input {
+              width: 100%;
+              padding: 9px 20px;
+              border-radius: 2px;
+              border: none;
+              outline: none;
+              font-size: 15px;
+            }
+        
+            &-icon {
+              color: #2874f0;
+              font-size: 17px;
+              padding-right: 15px;
+              cursor: pointer;
+            }
+          }
+      }
+    }
     &-left {
       display: flex;
       align-items: center;
       gap: 1.1rem;
       width: 60%;
+      @include responsive(tab) {
+        width: 100%;
+      }
       &-logo {
+        @include responsive(tab){
+          width: 100%;
+          text-align: center;
+        }
         &-text {
           color: white;
           font-style: italic;
@@ -30,6 +73,9 @@
       }
       &-searchbar {
         background-color: white;
+        @include responsive(tab) {
+          display: none;
+        }
         &-box {
           display: flex;
           gap: 1.1rem;
@@ -56,7 +102,10 @@
       align-items: center;
       gap: 2.5rem;
       width: 10%;
-      &-products{
+      @include responsive(tab) {
+        display: none;
+      }
+      &-products {
         color: white;
         font-weight: 600;
         font-size: 16px;

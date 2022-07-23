@@ -1,16 +1,28 @@
+@import "../../mediaQueries.scss";
+
 .cart {
   width: 100%;
   &-container {
     padding-top: 25px;
+    @include responsive(tab){
+      padding-top: 10px;
+    }
     &-box {
       width: 100%;
       display: flex;
       gap: 1rem;
       justify-content: center;
+      @include responsive(tab){
+        flex-direction: column;
+      }
       &-items {
         width: 55%;
         padding: 10px;
         background-color: white;
+        @include responsive(tab){
+          width: 100%;
+          padding: 0;
+        }
         &-top {
           border-bottom: 1px solid #f0f0f0;
           width: 100%;
@@ -74,6 +86,14 @@
         width: 25%;
         height: fit-content;
         padding: 13px 24px;
+        @include responsive(tab){
+          width: 93%;
+          margin-bottom: 50px;
+        }
+        @include responsive(phone){
+          width: 86%;
+          margin-bottom: 50px;
+        }
         &-top {
           width: 100%;
           border-bottom: 1px solid #f0f0f0;
@@ -150,9 +170,16 @@
       align-items: center;
       flex-direction: column;
       gap: 1.5rem;
+      @include responsive(tab) {
+          width: 60%;
+        }
       &-image {
         height: 112px;
         width: 112px;
+        @include responsive(tab){
+          height: 200px;
+          width: 200px;
+        }
       }
       &-counter {
         display: flex;
@@ -244,6 +271,14 @@
 .empty {
   max-width: 1260px;
   margin: 0 auto;
+  @include responsive(tab){
+    width: 95%;
+    margin: 0;
+  }
+  @include responsive(phone){
+    width: 90%;
+    margin: 0;
+  }
   &-container {
     width: 100%;
     margin: 0 auto;

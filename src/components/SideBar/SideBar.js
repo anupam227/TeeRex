@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SideBar.scss";
 import { isEmpty } from "lodash";
-const SideBar = ({ filters, setFilters }) => {
+const SideBar = ({ filters, setFilters, isFiltersVisible }) => {
   const handleChange = (e) => {
     // add to list
     let { filter } = filters;
@@ -15,7 +15,7 @@ const SideBar = ({ filters, setFilters }) => {
   };
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isFiltersVisible ? "isVisible" : "notVisible"}`}>
       <div className="sidebar-container">
         <div className="sidebar-container-filter">
           <div className="sidebar-container-filter-top">
@@ -145,12 +145,12 @@ const SideBar = ({ filters, setFilters }) => {
             </li>
             <li className="sidebar-container-type-list-option">
               <input
-                value="Round"
+                value="Basic"
                 onChange={handleChange}
                 className="sidebar-container-type-list-option-input"
                 type="checkbox"
               />
-              <p className="sidebar-container-type-list-option-text">Round</p>
+              <p className="sidebar-container-type-list-option-text">Basic</p>
             </li>
           </ul>
         </div>

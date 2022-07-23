@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./NavBar.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = ({ filters, setFilters, filteredData }) => {
   const [searchText, setSearchText] = useState("");
+  const currentPage = useLocation();
 
   useEffect(() => {
     setSearchText("");
@@ -49,6 +50,23 @@ const NavBar = ({ filters, setFilters, filteredData }) => {
             <p className="navbar-container-right-cart-text">Cart</p>
           </Link>
         </div>
+        {currentPage.pathname !== "/cart" && (
+          <div className="navbar-container-mobile">
+            <div className="navbar-container-mobile-searchbar">
+              <input
+                className="navbar-container-mobile-searchbar-input"
+                type="text"
+                name="search"
+                onChange={handleChange}
+                value={searchText}
+                placeholder="Search for products, brands and more"
+              />
+              <span className="navbar-container-mobile-searchbar-icon">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

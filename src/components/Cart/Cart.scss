@@ -2,9 +2,10 @@
 
 .cart {
   width: 100%;
+  position: relative;
   &-container {
     padding-top: 25px;
-    @include responsive(tab){
+    @include responsive(tab) {
       padding-top: 10px;
     }
     &-box {
@@ -12,14 +13,14 @@
       display: flex;
       gap: 1rem;
       justify-content: center;
-      @include responsive(tab){
+      @include responsive(tab) {
         flex-direction: column;
       }
       &-items {
         width: 55%;
         padding: 10px;
         background-color: white;
-        @include responsive(tab){
+        @include responsive(tab) {
           width: 100%;
           padding: 0;
         }
@@ -86,11 +87,11 @@
         width: 25%;
         height: fit-content;
         padding: 13px 24px;
-        @include responsive(tab){
+        @include responsive(tab) {
           width: 93%;
           margin-bottom: 50px;
         }
-        @include responsive(phone){
+        @include responsive(phone) {
           width: 86%;
           margin-bottom: 50px;
         }
@@ -171,12 +172,12 @@
       flex-direction: column;
       gap: 1.5rem;
       @include responsive(tab) {
-          width: 60%;
-        }
+        width: 60%;
+      }
       &-image {
         height: 112px;
         width: 112px;
-        @include responsive(tab){
+        @include responsive(tab) {
           height: 200px;
           width: 200px;
         }
@@ -271,11 +272,11 @@
 .empty {
   max-width: 1260px;
   margin: 0 auto;
-  @include responsive(tab){
+  @include responsive(tab) {
     width: 95%;
     margin: 0;
   }
-  @include responsive(phone){
+  @include responsive(phone) {
     width: 90%;
     margin: 0;
   }
@@ -319,4 +320,20 @@
       }
     }
   }
+}
+.error-msg {
+  color: red;
+  // width: fit-content;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  transform-origin: left top;
+  opacity: 0;
+}
+.error-style {
+  opacity: 1;
 }

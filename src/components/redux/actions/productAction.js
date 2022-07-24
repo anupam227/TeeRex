@@ -16,7 +16,7 @@ export const loadProducts = () => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log("error loading products");
+      // console.log("error loading products");
     });
 };
 export const addToCart = (items) => (dispatch) => {
@@ -44,7 +44,7 @@ export const addToCart = (items) => (dispatch) => {
       payload: temp,
     });
   } catch {
-    console.log("error adding to cart");
+    // console.log("error adding to cart");
   }
 };
 
@@ -54,7 +54,7 @@ export const loadCart = () => (dispatch) => {
       type: actions.CART_LOADED,
     });
   } catch {
-    console.log("error loading products");
+    // console.log("error loading products");
   }
 };
 export const removeFromCart = (id) => (dispatch) => {
@@ -64,7 +64,7 @@ export const removeFromCart = (id) => (dispatch) => {
       payload: id,
     });
   } catch {
-    console.log("error removing products");
+    // console.log("error removing products");
   }
 };
 export const itemDecrement = (id) => (dispatch) => {
@@ -86,7 +86,7 @@ export const itemDecrement = (id) => (dispatch) => {
       payload: results,
     });
   } catch {
-    console.log("Can't decrease the count more");
+    // console.log("Can't decrease the count more");
   }
 };
 export const itemIncrement = (id) => (dispatch) => {
@@ -96,6 +96,6 @@ export const itemIncrement = (id) => (dispatch) => {
       payload: id,
     });
   } catch {
-    console.log("Limit excced");
+    // console.log("Limit excced");
   }
 };

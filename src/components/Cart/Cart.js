@@ -12,11 +12,18 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 
 const Cart = () => {
   const products = useSelector((state) => state.products);
+  const [isShowError, setIsShowError] = useState(false);
+
   const dispatch = useDispatch();
   let totalPrice = 0;
   useEffect(() => {
     dispatch(loadCart());
   }, []);
+
+  setTimeout(() => {
+    setIsShowError(false);
+  }, 4000);
+
   const empty = (
     <div className="empty">
       <div className="empty-container">
@@ -40,8 +47,14 @@ const Cart = () => {
   const handleDecrement = (id) => {
     dispatch(itemDecrement(id));
   };
-  const handleIncrement = (id) => {
-    dispatch(itemIncrement(id));
+  const handleIncrement = (id, index) => {
+    const check =
+      products.cart[index].count === products.cart[index].item["quantity"];
+    if (check) {
+      setIsShowError(true);
+    } else {
+      dispatch(itemIncrement(id));
+    }
   };
 
   const product = products?.cart?.map((item, index) => {
@@ -67,7 +80,7 @@ const Cart = () => {
               </span>
               <button
                 disabled={item?.count <= item?.item?.quantity ? false : true}
-                onClick={() => handleIncrement(item?.item?.id)}
+                onClick={() => handleIncrement(item?.item?.id, index)}
                 className="product-container-left-counter-more"
               >
                 +
@@ -102,6 +115,11 @@ const Cart = () => {
     <>
       <div className="cart">
         <NavBar />
+        {/* {isShowError && ( */}
+        <span className={`error-msg ${isShowError && "error-style"}`}>
+          Cannot add more then available quantity
+        </span>
+        {/* )} */}
         <div className="cart-container">
           {products?.cart.length ? (
             <div className="cart-container-box">
